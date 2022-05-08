@@ -658,8 +658,26 @@ Lighttpd
 </h2>
 
 ```console
-[root@jseijo-p42 ~]# dnf -y install epel-release
+[root@jseijo-p42 ~]# cd /tmp
+[root@jseijo-p42 ~]# wget https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.64.tar.gz
+[root@jseijo-p42 ~]# tar -zxvf lighttpd-1.4.64.tar.gz
+cd lighttpd-1.4.64
+[root@jseijo-p42 ~]# yum install gcc bzip2 bzip2-devel openssl-devel zlib-devel pcre-devel
+[root@jseijo-p42 ~]# ./configure --host=i686-redhat-linux-gnu --build=i686-redhat-linux-gnu --target=i386-redhat-linux --program-prefix= --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc --datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib --libexecdir=/usr/libexec --localstatedir=/var --sharedstatedir=/usr/com --mandir=/usr/share/man --infodir=/usr/share/info --with-openssl --with-pcre --with-zlib --with-bzip2 --disable-ipv6 --with-PACKAGE=mod_redirect --with-rewrite --with-redirect --with-ssi
+[root@jseijo-p42 ~]# make
+[root@jseijo-p42 ~]# make install
+[root@jseijo-p42 ~]# mkdir /etc/lighttpd/
+[root@jseijo-p42 ~]# groupadd lighttpd
+[root@jseijo-p42 ~]# useradd -g lighttpd -d /var/www/html -s /sbin/nologin lighttpd
+[root@jseijo-p42 ~]# mkdir /var/log/lighttpd
+[root@jseijo-p42 ~]# chown lighttpd:lighttpd /var/log/lighttpd
+[root@jseijo-p42 ~]# cd /etc/lighttpd
+[root@jseijo-p42 ~]# wget http://www.cyberciti.biz/tips/wp-content/uploads/2006/07/lighttpd.conf.txt
+[root@jseijo-p42 ~]# mv lighttpd.conf.txt lighttpd.conf
+[root@jseijo-p42 ~]# chown lighttpd:root /etc/lighttpd/lighttpd.conf
+[root@jseijo-p42 ~]# cd /etc/systemd/
 ```
+TODO: im here!
 
 ```console
 [root@jseijo-p42 ~]# dnf -y install lighttpd
@@ -1223,7 +1241,7 @@ Fail2Ban useful commands
 <p><a href="https://bugs.launchpad.net/ubuntu/+source/ufw/+bug/1726856/comments/23"><i><b>Comment 23 for bug 1726856</b></i></a></p>
 
 ->lighttpd, php, mairadb
-<p><a href="https://www.tecmint.com/install-lighttpd-with-php-fpm-mariadb-on-centos/"><i><b>How to Install Lighttpd with PHP and MariaDB on CentOS/RHEL 8/7</b></i></a></p>
+<p><a href="https://www.cyberciti.biz/tips/installing-and-configuring-lighttpd-webserver-howto.html/"><i><b>How to Install Lighttpd from sources</b></i></a></p>
 <p><a href="https://mariadb.com/kb/en/mariadb-basics/"><i><b>MariaDB Basics</b></i></a></p>
 <p><a href="https://mariadb.com/kb/en/create-user/"><i><b>CREATE USER MariaDB</b></i></a></p>
 <p><a href="https://mariadb.com/kb/en/grant/"><i><b>GRANT</b></i></a></p>

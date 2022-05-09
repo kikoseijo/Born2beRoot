@@ -34,6 +34,21 @@ Login without a password using ssh .pub key.
 ```
 
 <h2 id="SS3">
+Adding the server to .config
+</h2>
+
+```console
+[jseijo-p@c2r5s1 ~]$ vi .ssh/config
+```
+
+```console
+Host c9 centos9
+    HostName 10.12.250.174
+    User jseijo-p42
+    Port 4242
+```
+
+<h2 id="SS3">
 Testing the SSH key
 </h2>
 

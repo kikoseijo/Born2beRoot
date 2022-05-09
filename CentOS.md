@@ -346,7 +346,8 @@ Lighttpd
 [root@jseijo-p42 ~]# wget https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.64.tar.gz
 [root@jseijo-p42 ~]# tar -zxvf lighttpd-1.4.64.tar.gz
 [root@jseijo-p42 ~]# cd lighttpd-1.4.64
-[root@jseijo-p42 ~]# yum install tar wget gcc bzip2 bzip2-devel openssl-devel zlib-devel pcre-devel
+[root@jseijo-p42 ~]# dnf install tar wget gcc bzip2 bzip2-devel openssl-devel zlib-devel pcre-devel
+[root@jseijo-p42 ~]# dnf -y group install 'Development Tools'
 [root@jseijo-p42 ~]# ./configure --host=i686-redhat-linux-gnu --build=i686-redhat-linux-gnu --target=i386-redhat-linux --program-prefix= --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc --datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib --libexecdir=/usr/libexec --localstatedir=/var --sharedstatedir=/usr/com --mandir=/usr/share/man --infodir=/usr/share/info --with-openssl --with-pcre --with-zlib --with-bzip2 --disable-ipv6 --with-PACKAGE=mod_redirect --with-rewrite --with-redirect --with-ssi
 [root@jseijo-p42 ~]# make
 [root@jseijo-p42 ~]# make install
